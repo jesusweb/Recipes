@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <h1> Recipes Search</h1>
+      <div [formGroup]="searchForm">
+        <input type="text" class="form-control" formControlName="searchString">
+      </div>
+    </div>
+  </div>
+
+  <div class="row results">
+    <table class="table table-striped table-responsive-md" width="100%">
+      <tr *ngFor="let recipe of recipeList">
+        <td>
+          <img *ngIf="recipe.thumbnail !== ''" src="{{ recipe.thumbnail }}" />
+          <div class="recipe-info">
+            <h4>{{ recipe.title }}</h4>
+            <p><b>Ingredients:</b> {{ recipe.ingredients }}</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
